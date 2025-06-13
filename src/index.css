@@ -1,0 +1,315 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 142 69% 58%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 142 69% 58%;
+    --accent-foreground: 0 0% 9%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 142 69% 58%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 142 69% 58%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 142 69% 58%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142 69% 58%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-800 {
+    animation-delay: 800ms;
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #4ade80 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-move 6s ease infinite;
+    background-size: 200% 200%;
+  }
+
+  .glow {
+    box-shadow: 0 0 20px 5px rgba(74, 222, 128, 0.2);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .reveal {
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-delay-200 {
+    transition-delay: 200ms;
+  }
+  
+  .reveal-delay-400 {
+    transition-delay: 400ms;
+  }
+  
+  .reveal-delay-600 {
+    transition-delay: 600ms;
+  }
+  
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+  
+  .floating-slow {
+    animation: floating 5s ease-in-out infinite;
+  }
+  
+  .floating-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .floating-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .floating-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4ade80 0%, #3b82f6 100%);
+  transform-origin: 0%;
+  z-index: 50;
+}
+
+/* Animated Cursor Styles */
+.animated-cursor {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  z-index: 999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s;
+  pointer-events: none;
+}
+
+.animated-cursor .cursor-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #4ade80;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease-in-out,
+              height 0.2s ease-in-out,
+              opacity 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.animated-cursor .cursor-outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(74, 222, 128, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease-in-out,
+              height 0.2s ease-in-out,
+              opacity 0.2s ease-in-out;
+  opacity: 0.8;
+}
+
+.animated-cursor.clicked .cursor-inner {
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: #3b82f6;
+}
+
+.animated-cursor.clicked .cursor-outer {
+  transform: translate(-50%, -50%) scale(1.2);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+.animated-cursor.hidden {
+  opacity: 0;
+}
+
+.animated-cursor.link-hovered .cursor-inner {
+  width: 12px;
+  height: 12px;
+  background-color: #3b82f6;
+}
+
+.animated-cursor.link-hovered .cursor-outer {
+  width: 30px;
+  height: 30px;
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+/* Custom animations */
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes pulse-slow {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes rotating {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-up {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-down {
+  0% { transform: translateY(-100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-left {
+  0% { transform: translateX(100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-right {
+  0% { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
